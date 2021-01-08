@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Physics Engine</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="Resume_Kumar.pdf" target="_blank" download>Resume</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/arun-kumar-102197/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/ayerun" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">November 2020 - December 2020</span>
+                                    <h1>Physics Engine<br/>
+                                        From Scratch</h1>
+                                    <p>Implemented Lagrangian dynamics in a Python physics simulator of a 6 DOF system.<br/>
+                                        Code inputs initial conditions and external forces and produces an animation.
+                                    </p>
+								</header>
+								<div class="image main"><img src="images/jacksim.gif" alt="" /></div>
+								<h2>Overview</h2>
+								<p>The goal of this project was to demonstrate understanding of Lagrangian dynamics. 
+                                    Lagrangian dynamics is often overlooked in undergraduate dynamics courses, but it is the most fundamental way to model complex systems.
+                                    In modern engineering, napkin dynamics calculations have been replaced by state-of-the-art simulations.
+                                    Understanding how these simulations work enables an engineer to quantify the accuracy of a simulation.
+                                </p>
+                                
+                                <h2>System Configuration</h2>
+								<p>Lagrangian dynamics relies on configuration variables. 
+                                    This jack in a box system has 6 degrees of freedom meaning there are 6 configuration variables, 3 for the box and 3 for the jack. 
+                                    Each object can be fully defined with a x and y coordinate for position and an angle (&theta;) for orientation.
+                                </p>
+
+								<h2>Geometry</h2>
+                                <p> It is important to stay organized when modeling a complex system.
+                                    Using trigonometry for geometry calculations can be tedious and prone to error.
+                                    I defined the system's geometry by placing reference frames at the ends of the jack and walls of the box. <br/>
+                                    <img src="images/Transformations.png" alt="" /><br/>
+                                    Using transformation matricies, I am able to track the position and orientation of all frames.
+                                    This is critical for impact detection.
+								</p>
+
+								<h2>Euler-Lagrange (EL) Equations</h2>
+								<p> To calculate the EL equations, I started with potential and kinetic energy.
+                                    For kinetic energy, I used the equation, 
+                                    $$KE = \frac{1}{2}{V_b}^{T}IV_b.$$
+                                    \(V_b\) is the body velocity<br/>
+                                    I is the combined mass and inertia matrix<br/>
+                                    I set to potential energy to 0 under the assumption that gravity is acting in the z direction (into the screen). 
+                                    I calculated the Lagrangian by subtracting the potential energy from the kinetic energy, \(L=KE-PE\). 
+                                    Finally, I formed the EL equations by differentiating the Lagrangian.
+                                    $$\frac{d}{dt}(\frac{&delta;L}{&delta;\frac{dq}{dt}})-\frac{&delta;L}{&delta;q}=F$$
+                                    q is a matrix of configuration variables<br/>
+                                    F is a matrix of external forces on the system
+                                </p>
+                                
+                                <h2>Constraints</h2>
+                                <p>There are 16 constraints because each side of the jack can hit any of the four walls of the box. 
+                                    I formed the constraint equations by calculating the position of tips of the jack in the frames of the box walls.
+                                    Then, I set the x or y coordinate of the transformation matrix equal to 0 representing collision between the jack and the box.
+                                    For the transformations between the jack and the left and right walls of the box, I set the x coordinate equal to zero. 
+                                    For the transformations between the jack and the top and bottom walls of the box, I set the y coordinate equal to zero.
+								</p>
+
+								<h2>Impacts Update Laws</h2>
+								<p>To calculate the impact update, I had to solve for the time derivative of the configuration variables after impact. 
+                                    The configuration variables before and after impact are equivalent. 
+                                    I made two substitutions dictionaries to do this (one with configuration variables before impact and one with configuration variables after impact). 
+                                    I used the substitution dictionaries in the impact update equations.<br/>
+                                    Momentum Update:
+                                    $${\frac{&delta;L}{&delta;\frac{dq}{dt}}}^{+}-{\frac{&delta;L}{&delta;\frac{dq}{dt}}}^{-}=&lambda;\frac{&delta;&phi;}{&delta;q}$$
+                                    &phi; is the impact constraint<br/>
+                                    - represents configuration variables before impact<br/>
+                                    + represents configuration variables after impact<br/>
+                                    Energy Update:
+                                    $$H^{+}-H^{-}=0$$
+                                    $$H=(\frac{&delta;L}{&delta;\frac{dq}{dt}})(\frac{dq}{dt})-L$$
+                                    H is the Hamiltonain<br/>
+                                    Each constraint requires a different set of impact update equations.
+                                    Because there are too many variables to solve these equations symbolically in python, I solved the equations when an impact is detected during simulation. 
+                                    When an impact is detected, I substitute current values of the configuration variables and their time derivative into my impact update equations reducing the computational intensity of solving the equations. 
+                                    During each step of the simulation, I check to see if any of the impact constraints have been met. 
+                                    If the code detects impact, the impact equations are solved. 
+                                    If the code detects no impact, the EL equations are solved.
+								</p>
+
+								<h2>Testing</h2>
+								<p>I heavily tested my code to ensure that it is functioning properly. 
+                                    Since I modeled gravity in the z direction, it was easy to see how changing the initial condition affected my simulation. 
+                                    I tested each initial condition individually by setting all other initial conditions and external forces to 0 and animating my solution to determine whether or not my simulation is realistic. 
+                                    I then started to combine various initial conditions for testing. 
+                                    After testing initial conditions, I tested external forces. 
+                                    I used the same process to test external forces as I used to test initial conditions. 
+                                    Once I was confident the external forces were accurate, I started to combine external forces and initial conditions. 
+                                    I used the animation to check whether or not the simulation is realistic.
+                                    The gif at the top of the page uses an initial box angular velocity of 1\(\frac{rad}{s}\), and applies external forces to the box. 
+                                    The external forces are \(F_{x}=300sin(t)\) and \(F_{y}=300cos(t)\). 
+                                    If you neglect  energy transfer between the jack and the box, these initial conditions and forces would cause the box to rotate about its center and follow a repeating semi-circle trajectory moving in the positive x direction. 
+                                    My animation shows the box performing as predicted with slight variations due to energy transfer between the box and the jack. 
+                                    The trajectory of the jack within the box looks realistic given the initial conditions and constants. 
+                                    The mass of the jack is 4kg (a 1kg point mass at each end of the jack) and the mass of each wall of the box is 25kg.
+                                </p>
+                                <h1><a href="https://github.com/ayerun/Jack_in_Box" target="_blank">-View Full Source Code-</a></h1>
+							</section>
+
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
