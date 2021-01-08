@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Robotic 3D Scanner</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="Resume_Kumar.pdf" target="_blank" download>Resume</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/arun-kumar-102197/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/ayerun" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">October 2020 - December 2020</span>
+									<h1>Robotic 3D Scanner</h1>
+                                    <p>Worked on a team to build a multi-robot system capable of 3D scanning.</br>
+                                        Created a point cloud processing pipeline that fuses point clouds then crops the background.</p>
+								</header>
+								<div class="image main"><img src="images/clorox2.gif" alt="" /></div>
+								<h2>Overview</h2>
+								<p>We created an automated system for reconstructing objects with point clouds. 
+                                    The system hardware includes a Rethink Sawyer robot arm, an Intel RealSense camera, and a TurtleBot3 Burger.
+                                    The TurtleBot3 is used as a turntable for the object being scanned. 
+                                    As the Turtlebot3 rotates, The RealSense saves a point cloud every 90 degrees of rotation to capture all sides of the object.
+                                    Then, the arm moves the RealSense to a top-down view for the final scan.
+                                    All saved point clouds are transformed and fused into a single pointcloud.
+                                    The background is then cropped from the final point cloud.
+                                    All software was written using C++ and Python within the ROS communication framework.<br/>
+                                    <img src="images/robot_scanning.gif" alt="" /><br/>
+                                    speed 2x
+								</p>
+
+								<h2>Point Cloud Processing Pipeline</h2>
+								<p>My primary contribution to this project was the software that collects point cloud data and reconstructs the object being scanned. 
+                                    Using the publisher/subscriber infrastructure in ROS, I created a Python script and a C++ that work together for scanning and reconstruction.
+                                    The scanning is done in the Python node, 
+                                    <a href="https://github.com/ayerun/Robotic_3D_Scanner/blob/master/camera_reconstruct/nodes/generate_pc" target="_blank">generate_pc</a>.
+                                    This node provides a service to save point clouds from the RealSense camera.
+                                    Everytime a point cloud is saved, the service transforms the point cloud from a camera frame to a TurtleBot3 frame.
+                                    This rotates the point cloud based on odometry data from the TurtleBot3.
+                                    Saved point clouds are published to the saved_pcs topic.
+                                    The <a href="https://github.com/ayerun/Robotic_3D_Scanner/blob/master/camera_reconstruct/nodes/fuse_pc.cpp" target="_blank">fuse_pc</a> 
+                                    node is a C++ script that subscribes to the saved_pcs topic.
+                                    As point clouds are saved, each newly saved point cloud is fused with the previously saved point clouds.
+                                    After fusion, the script crops background data from the fused point cloud leaving just the scanned object.
+                                    The final point cloud is published to the fused_pcs topic.
+                                    <br/>
+                                    <img src="images/pipeline.png" alt="" />
+								</p>
+
+								<h2>Networking</h2>
+								<p>One of the biggest challenges of this project was networking between multiple robots. 
+                                    For this project to be successful we needed all robots and computers to communicate on the same ROS_MASTER_URI.
+                                    We solved this challenged by connecting all robots and computers to the same router.
+                                    By connecting the router to the internet, we were able to syncronize time between machines allowing for seemless communication. 
+                                    <img src="images/networking.png" alt="" />
+                                </p>
+                                
+                                <h2>Robotic Motion</h2>
+                                <p> The motion of the Sawyer arm and TurtleBot3 are controlled by two nodes, 
+                                    <a href="https://github.com/ayerun/Robotic_3D_Scanner/blob/master/arm_motion/nodes/turntable" target="_blank">turntable</a> and 
+                                    <a href="https://github.com/ayerun/Robotic_3D_Scanner/blob/master/arm_motion/nodes/scanner_arm" target="_blank">scanner_arm</a>. 
+                                    The turntable node controls the TurtleBot3's rotation. It provides a ROS service to rotate the TurtleBot3 by a desired angle.
+                                    The scanner_arm node utilizes the services provided by the turntable and generate_pc nodes. 
+                                    This script sends commands to rotate the TurtleBot3 and save point clouds from the RealSense at the appropriate times.
+								</p>
+
+								<h2>Flaws & Improvements</h2>
+								<p>This project contains many subsystems that needed to be developed before we could begin testing and improving the entire system.
+                                    This section will touch on the changes we were able to make during final testing.
+                                </p>
+                                <p><b>TurtleBot3 Odometry</b><br/>
+                                    The backbone of our project was the point cloud processing pipeline. 
+                                    This pipeline relied on the TurtleBot3's odometry (from IMU) to transform saved point clouds before fusion. 
+                                    Uncertainty in the odometry resulted in poorly fused point clouds. The results of this are shown in the gifs below.<br/>
+                                    <img src="images/windex.gif" alt="" />
+                                    <img src="images/octopus_cropped.gif" alt="" />
+                                    <img src="images/bottle.gif" alt="" /><br/>
+                                </p>
+                                <p>
+                                    Moving forward, we had two options. 
+                                    The first option was to manually calculate the rotation of the TurtleBot3 by integrating the joint states of the wheels. 
+                                    We decided against this solution because the TurtleBot3 has noticeable drift during rotation, and this solution assumes the TurtleBot3 rotates without translation.
+                                    The second option was to use SLAM instead of odometry data.
+                                </p>
+                                <p>
+                                    <b>SLAM</b><br/>
+                                    To incorporate SLAM, we took advantage of the ROS SLAM Toolbox and modified the point cloud processing pipeline. 
+                                    We created two new ROS nodes, 
+                                    <a href="https://github.com/ayerun/Robotic_3D_Scanner/blob/master/camera_reconstruct/nodes/generate_pc_slam" target="_blank">generate_pc_SLAM</a> and 
+                                    <a href="https://github.com/ayerun/Robotic_3D_Scanner/blob/master/camera_reconstruct/nodes/fuse_pc_slam.cpp" target="_blank">fuse_pc_SLAM</a>, 
+                                    that transform point clouds using localization from SLAM.
+                                    Unfortuantely, we were unable to crop the background of these point clouds before the project deadline.
+                                    The results are shown in the gifs below.<br/>
+                                    <img src="images/shoe.gif" alt="" />
+                                    <img src="images/clorox2.gif" alt="" />
+								</p>
+
+								<h2>Future Work</h2>
+								<p>
+                                    <b>Continuous Point Cloud Fusion</b><br/>
+                                    One of the main shortcomings of this project was the fact that our pipeline only fused five pointclouds each a 90 degree rotation from each other.
+                                    For optimal scanning, we would like to (almost) continuously save and fuse point clouds as the TurtleBot3 is rotating.
+                                    To do this we could implement the iterative closest point (ICP) algorithm to fuse the point clouds.
+                                </p>
+                                <p>
+                                    <b>Multi Angle Scan</b><br/>
+                                    Using the ICP algorithm would allow for more freedom with arm movement as well. 
+                                    By moving the arm to various vantage points, we could collect more depth data for fusion and create more accurate 3D scans. 
+                                    We began implementing the arm motion for this feature in a node named 
+                                    <a href="https://github.com/ayerun/Robotic_3D_Scanner/blob/master/arm_motion/nodes/scanner_arm_multi" target="_blank">scanner_arm_multi</a>.
+								</p>
+
+								<h2>Teammates</h2>
+								<p>
+									Tianyu Li<br/>
+									Larissa Loke<br/>
+									Bowen Feng<br/>
+									Nicole Baptist<br/>
+                                </p>
+                                <h1><a href="https://github.com/ayerun/Robotic_3D_Scanner" target="_blank">-View Full Source Code-</a></h1>
+							</section>
+
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
