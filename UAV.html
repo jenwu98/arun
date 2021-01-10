@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Weather Detection and Response UAV</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="Resume_Kumar.pdf" target="_blank" download>Resume</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/arun-kumar-102197/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/ayerun" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">September 2019 - May 2020</span>
+                                    <h1>Weather Detection & Response UAV</h1>
+                                    <p>Worked as a software systems engineer on a team of 6 engineers to develop a flight management computer for UAVs. 
+                                        Drone autonomously detects and responds to immediate weather conditions to ensure drone safety.
+                                    </p>
+								</header>
+								<div class="image main"><img src="images/UAV.gif" alt="" /></div>
+								<h2>Overview</h2>
+								<p>The purpose of this project is to improve the safety of autonomous unmanned aerial vehicle flight. 
+									Our team designed and implemented a flight management computer that enables drones to autonomously detect and response to current weather conditions.
+									Strategically placed sensors on the drone collect data such as temperature, humidity, pressure, and wind speed.
+									The on-board computer processes this data in real time.
+									Using defined weather thresholds, the drone is able to determine if the data is indicative of inclement weather.
+									Finally, the drone makes the decision to continue on the flight path, return to the launch site, or land in a safe area.<br/>
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/v9WZRuyXnxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									<!-- <img src="images/Flight_Scenario_Tree.png" alt="" /> -->
+                                </p>
+                                
+                                <h2>Drone & Sensors</h2>
+								<p>We used the Tarot 650 Sport Quadcopter because of its flight reliability and mounting options. 
+									The sensors from table 1, were strategically mounted to avoid down wash from the propellers.
+									The flight management computer was placed on the lower mounting plate to keep sensitive electronics sheltered.
+									A parachute was added to the drone as a last resort fail-safe.
+									<img src="images/exploded_drone.png" alt="" />
+									<img src="images/exploded_view2.png" alt="" />
+									<img src="images/sensor_data.png" alt="" />
+                                </p>
+
+								<h2>Flight Management Computer</h2>
+                                <p>
+									The flight management computer was my primary area of work. The system was built using three microcontrollers, an Arudino, a Raspberry Pi 4, and a Pixhawk 4.
+									The physical connections between the devices are detailed in figure...
+									The task of each microcontroller are as follows:<br/>
+									<img src="images/software_systems.png" alt="" /><br/>
+									<b>Arduino Mega 2560</b><br/>
+									1. Collect data from temperature, humidity, and environmental combination sensors<br/>
+									2. Send data to Raspberry Pi 4<br/>
+									<b>Pixhawk 4</b><br/>
+									1. Send sensor data to Raspberry Pi 4<br/>
+									2. Receive flight commands from Raspberry Pi 4<br/>
+									3. Implement flight commands<br/>
+									<b>Raspberry Pi 4</b><br/>
+									1. Aggregate sensor data from Arduino Mega 2560, Pixhawk 4, and the ultrasonic anemometer<br/>
+									2. Analyze data in real time<br/>
+									3. Compare data to defined weather thresholds<br/>
+									4. Send flight commands to Pixhawk based on data analysis<br/>
+									5. Record video during flight<br/>
+									6. Save all collected data to a .csv file<br/>
+
+									
+									<img src="images/System_Diagram.png" alt="" />
+								</p>
+                                
+                                <h2>Conclusion</h2>
+                                <p>The FMS has the ability to be installed on various drones with minimal modifications. 
+									Flight safety is greatly improved while the FMS is continuously analyzing and reacting to weather conditions.
+									Beyond safety, the FMS can also increase the efficiency of UAV flight. Moisture in the
+									air can impact propeller performance, extreme temperatures can drain batteries
+									faster than normal, wind can force UAVs to work harder than needed. 
+									By collecting weather data and making appropriate changes to flight plans, the range of a UAV’s flight can be extended.
+									The technology demonstrated in this project is the start to improving autonomous drone flight through weather detection.
+								</p>
+							</section>
+
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

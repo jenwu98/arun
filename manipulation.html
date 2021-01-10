@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Robotic Manipulation Simulation</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="Resume_Kumar.pdf" target="_blank" download>Resume</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/arun-kumar-102197/" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/ayerun" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">November 2020 - December 2020</span>
+                                    <h1>Robotic Manipuation Simulation</h1>
+                                    <p>Created an autonomous pick and place simulation using Python and CoppeliaSim.<br/>
+                                        Code generates reference trajectory and uses PI controller to follow trajectory.
+                                    </p>
+								</header>
+								<div class="image main"><img src="images/youbot.gif" alt="" /></div>
+								<h2>Overview</h2>
+								<p>The purpose of this project was to demonstrate understanding of the math behind robotic manipulation.
+                                    I wrote Python code the plans a trajectory, performs odometry, and performs feedback control. 
+                                    The code outputs a csv file, that can be imported into CoppeliaSim to visualize results.
+                                </p>
+                                
+                                <h2>Results</h2>
+								<p>
+                                    <img src="images/youbot.gif" alt="" /><br/>
+                                    Demonstration of a well tuned PI controller.<br/>
+
+                                    <img src="images/overshoot.gif" alt="" /><br/>
+                                    Demonstration of a poorly tuned PI controller. 
+                                    Overshoot causes robot to oscillate around reference trajectory at the beginning of the gif.<br/>
+
+                                    <img src="images/newTask.gif" alt="" /><br/>
+                                    Demonstration of code working with new pick and place locations.<br/>
+                                </p>
+
+                                <h1><a href="https://github.com/ayerun/YouBot_sim" target="_blank">-View Full Source Code-</a></h1>
+							</section>
+
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
