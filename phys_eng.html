@@ -70,9 +70,12 @@
                                 <p> It is important to stay organized when modeling a complex system.
                                     Using trigonometry for geometry calculations can be tedious and prone to error.
                                     I defined the system's geometry by placing reference frames at the ends of the jack and walls of the box. <br/>
-                                    <img src="images/Transformations.png" alt="" /><br/>
                                     Using transformation matricies, I am able to track the position and orientation of all frames.
                                     This is critical for impact detection.
+                                    <img class="image center" src="images/Transformations.png" alt="" /><br/>
+                                    <div class="align center">
+										<p class="image center"><b>Figure 1.</b> Reference frames for the jack/box system. X axes are in green and y axes are in red.</p>
+									</div>
 								</p>
 
 								<h2>Euler-Lagrange (EL) Equations</h2>
@@ -101,16 +104,19 @@
 								<p>To calculate the impact update, I had to solve for the time derivative of the configuration variables after impact. 
                                     The configuration variables before and after impact are equivalent. 
                                     I made two substitutions dictionaries to do this (one with configuration variables before impact and one with configuration variables after impact). 
-                                    I used the substitution dictionaries in the impact update equations.<br/>
-                                    Momentum Update:
+                                    I used the substitution dictionaries in the impact update equations.<br/></p>
+                                <p>
+                                    <b>Momentum Update:</b>
                                     $${\frac{&delta;L}{&delta;\frac{dq}{dt}}}^{+}-{\frac{&delta;L}{&delta;\frac{dq}{dt}}}^{-}=&lambda;\frac{&delta;&phi;}{&delta;q}$$
                                     &phi; is the impact constraint<br/>
                                     - represents configuration variables before impact<br/>
-                                    + represents configuration variables after impact<br/>
-                                    Energy Update:
+                                    + represents configuration variables after impact<br/></p>
+                                <p>
+                                    <b>Energy Update:</b>
                                     $$H^{+}-H^{-}=0$$
                                     $$H=(\frac{&delta;L}{&delta;\frac{dq}{dt}})(\frac{dq}{dt})-L$$
-                                    H is the Hamiltonain<br/>
+                                    H is the Hamiltonain<br/></p>
+                                <p>
                                     Each constraint requires a different set of impact update equations.
                                     Because there are too many variables to solve these equations symbolically in python, I solved the equations when an impact is detected during simulation. 
                                     When an impact is detected, I substitute current values of the configuration variables and their time derivative into my impact update equations reducing the computational intensity of solving the equations. 

@@ -56,9 +56,11 @@
                                     All saved point clouds are transformed and fused into a single pointcloud.
                                     The background is then cropped from the final point cloud.
                                     All software was written using C++ and Python within the ROS communication framework.<br/>
-                                    <img src="images/robot_scanning.gif" alt="" /><br/>
-                                    speed 2x
-								</p>
+                                    <img class="image center" src="images/robot_scanning.gif" alt="" />
+                                    <div class="align center">
+										<p class="image center" style="font-size: 16px;"><b>Figure 1.</b> Robotic 3D scanning of a bottle. Robotic arm holds depth camera as robotic turntable spins the bottle. Gif plays at 2x real speed.</p>
+                                    </div>
+                                </p>
 
 								<h2>Point Cloud Processing Pipeline</h2>
 								<p>My primary contribution to this project was the software that collects point cloud data and reconstructs the object being scanned. 
@@ -75,7 +77,10 @@
                                     After fusion, the script crops background data from the fused point cloud leaving just the scanned object.
                                     The final point cloud is published to the fused_pcs topic.
                                     <br/>
-                                    <img src="images/pipeline.png" alt="" />
+                                    <img class="image center" src="images/pipeline.png" alt="" />
+                                    <div class="align center">
+										<p class="image center" style="font-size: 16px;"><b>Figure 2.</b> ROS nodes and topics in point cloud processing pipeline. Generate_pc saves and transforms point clouds. Fuse_pc fuses and crops background from point clouds.</p>
+                                    </div>
 								</p>
 
 								<h2>Networking</h2>
@@ -83,7 +88,10 @@
                                     For this project to be successful we needed all robots and computers to communicate on the same ROS_MASTER_URI.
                                     We solved this challenged by connecting all robots and computers to the same router.
                                     By connecting the router to the internet, we were able to syncronize time between machines allowing for seemless communication. 
-                                    <img src="images/networking.png" alt="" />
+                                    <img class="image center" src="images/networking.png" alt="" />
+                                    <div class="align center">
+										<p class="image center" style="font-size: 16px;"><b>Figure 3.</b> Networking diagram of robotic 3D scanner. Robots communicate and syncronize time through a router.</p>
+                                    </div>
                                 </p>
                                 
                                 <h2>Robotic Motion</h2>
@@ -103,9 +111,20 @@
                                     The backbone of our project was the point cloud processing pipeline. 
                                     This pipeline relied on the TurtleBot3's odometry (from IMU) to transform saved point clouds before fusion. 
                                     Uncertainty in the odometry resulted in poorly fused point clouds. The results of this are shown in the gifs below.<br/>
-                                    <img src="images/windex.gif" alt="" />
-                                    <img src="images/octopus_cropped.gif" alt="" />
-                                    <img src="images/bottle.gif" alt="" /><br/>
+                                    <div class="row"> 
+                                        <div class="column-3">    
+                                            <img src="images/windex.gif" alt="" style="width: 100%; height: 100%;"/>
+                                        </div>
+                                        <div class="column-3">    
+                                            <img src="images/octopus_cropped.gif" alt="" style="width: 100%; height: 100%;"/>
+                                        </div>
+                                        <div class="column-3">    
+                                            <img src="images/bottle.gif" alt="" style="width: 100%; height: 100%;"/>
+                                        </div>
+                                    </div>
+                                    <div class="align center">
+										<p class="image center" style="font-size: 16px;"><b>Figure 4.</b> 3D scans using TurtleBot3 odometry for transformations. Expo bottle (left), Soldering clamp stand (center), White water bottle (right).</p>
+                                    </div>
                                 </p>
                                 <p>
                                     Moving forward, we had two options. 
@@ -122,8 +141,17 @@
                                     that transform point clouds using localization from SLAM.
                                     Unfortuantely, we were unable to crop the background of these point clouds before the project deadline.
                                     The results are shown in the gifs below.<br/>
-                                    <img src="images/shoe.gif" alt="" />
-                                    <img src="images/clorox2.gif" alt="" />
+                                    <div class="row">
+										<div class="column-2">
+											<img src="images/shoe.gif" alt="" style="width: 100%;"/>
+										</div>
+										<div class="column-2">
+											<img src="images/clorox2.gif" style="width: 100%;"/>
+										</div>
+                                    </div>
+                                    <div class="align center">
+										<p class="image center" style="font-size: 16px;"><b>Figure 5.</b> 3D scans using SLAM for transformations. White shoe (left), Clorox bottle (right).</p>
+                                    </div>
 								</p>
 
 								<h2>Future Work</h2>
@@ -144,7 +172,7 @@
 								<h2>Teammates</h2>
 								<p>
 									Tianyu Li<br/>
-									Larissa Loke<br/>
+									Yen Chin Loke<br/>
 									Bowen Feng<br/>
 									Nicole Baptist<br/>
                                 </p>

@@ -58,8 +58,8 @@
 									Strategically placed sensors on the drone collect data such as temperature, humidity, pressure, and wind speed.
 									The on-board computer processes this data in real time.
 									Using defined weather thresholds, the drone is able to determine if the data is indicative of inclement weather.
-									Finally, the drone makes the decision to continue on the flight path, return to the launch site, or land in a safe area.<br/>
-									<iframe width="560" height="315" src="https://www.youtube.com/embed/v9WZRuyXnxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									Finally, the drone makes the decision to continue on the flight path, return to the launch site, or land in a safe area.<br><br/>
+									<iframe width="560" height="315" class="video center" src="https://www.youtube.com/embed/v9WZRuyXnxE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 									<!-- <img src="images/Flight_Scenario_Tree.png" alt="" /> -->
                                 </p>
                                 
@@ -68,17 +68,33 @@
 									The sensors from table 1, were strategically mounted to avoid down wash from the propellers.
 									The flight management computer was placed on the lower mounting plate to keep sensitive electronics sheltered.
 									A parachute was added to the drone as a last resort fail-safe.
-									<img src="images/exploded_drone.png" alt="" />
-									<img src="images/exploded_view2.png" alt="" />
-									<img src="images/sensor_data.png" alt="" />
+
+									<div class="row"> 
+                                        <div class="column-2">    
+                                            <img src="images/exploded_drone.png" alt="" style="width: 100%; height: 100%;"/>
+                                        </div>
+                                        <div class="column-2">    
+                                            <img src="images/exploded_view2.png"alt="" style="width: 100%; height: 100%;"/>
+										</div>
+									</div>
+									<div class="align center">
+										<p class="image center"><b>Figure 1.</b> Exploded views of the drone highlighting key components.</p>
+									</div>
+									<div class="align center">
+										<img class="image center" src="images/sensor_data.png" alt="" style="width: 70%;"/>
+										<p class="image center"><b>Table 1.</b> Breakdown of all utilized data from on-board sensors. Measurement redundancies allow for sensor failure without system failure.</p>
+									</div>
+									<!-- <div>
+                                        <div class="column-3">    
+                                            <img src="images/sensor_data.png"  alt="" style="width: 100%; height: 100%;"/>
+                                        </div>
+                                    </div> -->
                                 </p>
 
-								<h2>Flight Management Computer</h2>
+								<h2>Flight Management Computer (FMC)</h2>
                                 <p>
-									The flight management computer was my primary area of work. The system was built using three microcontrollers, an Arudino, a Raspberry Pi 4, and a Pixhawk 4.
-									The physical connections between the devices are detailed in figure...
+									The FMC was my primary area of work. The system was built using three microcontrollers, an Arudino, a Raspberry Pi 4, and a Pixhawk 4.
 									The task of each microcontroller are as follows:<br/>
-									<img src="images/software_systems.png" alt="" /><br/>
 									<b>Arduino Mega 2560</b><br/>
 									1. Collect data from temperature, humidity, and environmental combination sensors<br/>
 									2. Send data to Raspberry Pi 4<br/>
@@ -95,7 +111,14 @@
 									6. Save all collected data to a .csv file<br/>
 
 									
-									<img src="images/System_Diagram.png" alt="" />
+									<img class="image center" src="images/System_Diagram.png" alt="" />
+									<div class="align center">
+										<p class="image center"><b>Figure 2.</b> Schematic of all physical connections between microcontrollers and sensors.</p>
+									</div>
+									<img class="image center" src="images/software_systems.png" alt="" style="width: 100%;"/><br/>
+									<div class="align center">
+										<p class="image center"><b>Figure 3.</b> Data flowchart of FMC. Communication protocols and software running on each microcontroller are highlighted in this diagram.</p>
+									</div>
 								</p>
                                 
                                 <h2>Conclusion</h2>
