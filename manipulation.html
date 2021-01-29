@@ -56,8 +56,31 @@
 								<p>The purpose of this project was to demonstrate understanding of the math behind robotic manipulation.
                                     I wrote Python code the plans a trajectory, calculates odometry, and performs feedback control. 
                                     The code outputs a csv file, that can be imported into CoppeliaSim to visualize results.
-                                </p>
-                                
+								</p>
+								<h2>Reference Trajectory</h2>
+								<p>The first step in this project was generating a reference trajectory. 
+									I coded a function, 
+									<a href="https://github.com/ayerun/YouBot_sim/blob/master/code/final_project.py" target="_blank">TrajectoryGenerator</a>, 
+									that inputs the initial end-effector configuration, initial cube configuration, desired cube configuration, and number of configurations per second.
+									The function outputs a matrix containing the end effector configuration at all time steps throughout the trajectory.
+									<img class="image center" src="images/reference_trajectory.gif" alt="" />
+                                    <p class="image center" style="font-size: 16px;"><b>Figure 1.</b> Example of the generated reference trajectory. Gif plays at 3x speed.</p><br/>
+								</p>
+								<h2>Robot Kinematics</h2>
+								<p>After generating a reference trajectory, I worked towards simulating the YouBot's kinematics. I wrote a function, 
+									<a href="https://github.com/ayerun/YouBot_sim/blob/master/code/final_project.py" target="_blank">NextState</a>, 
+									that inputs the current robot configuration and joint speeds. 
+									The function uses first-order Euler integration to calculate wheel and joint angles at the next time step. 
+									I used odometry to calculate the chasis configuration based on the change in wheel angles over the time step. 
+									To do this, I started with the body twist of a four-mecanum-wheel robot. 
+									Using matrix exponentials I determined the transformation needed to give me the location and orientation of the chasis in the space frame. 
+									Combining these configuration variables gives the entire YouBot configuration at the next time step.
+								</p>
+								<h2>Feedforward Control</h2>
+								<p>Now that I generated a reference trajectory and can simulate the robot's kinematics, the last step was implement a controler to make the robot follow the reference trajectory.
+									I coded a controller that used feedforward plus feedback control law:<br/>
+									$$V(t) = [Ad_{X^{-1}-X_d}]V_d(t)+K_pX_{err}+Ki\int_{0}^{t}X_{err}(t)\,dt$$
+								</p>
                                 <h2>Results</h2>
 								<p>
                                     <img class="image center" src="images/youbot.gif" alt="" />
