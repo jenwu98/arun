@@ -60,7 +60,7 @@
 								<h2>Reference Trajectory</h2>
 								<p>The first step in this project was generating a reference trajectory. 
 									I coded a function, 
-									<a href="https://github.com/ayerun/YouBot_sim/blob/master/code/final_project.py" target="_blank">TrajectoryGenerator</a>, 
+									<a href="https://github.com/ayerun/YouBot_sim/blob/master/code/final_project.py#L80" target="_blank">TrajectoryGenerator</a>, 
 									that inputs the initial end-effector configuration, initial cube configuration, desired cube configuration, and number of configurations per second.
 									The function outputs a matrix containing the end effector configuration at all time steps throughout the trajectory.
 									<img class="image center" src="images/reference_trajectory.gif" alt="" />
@@ -68,7 +68,7 @@
 								</p>
 								<h2>Robot Kinematics</h2>
 								<p>After generating a reference trajectory, I worked towards simulating the YouBot's kinematics. I wrote a function, 
-									<a href="https://github.com/ayerun/YouBot_sim/blob/master/code/final_project.py" target="_blank">NextState</a>, 
+									<a href="https://github.com/ayerun/YouBot_sim/blob/master/code/final_project.py#L8" target="_blank">NextState</a>, 
 									that inputs the current robot configuration and joint speeds. 
 									The function uses first-order Euler integration to calculate wheel and joint angles at the next time step. 
 									I used odometry to calculate the chasis configuration based on the change in wheel angles over the time step. 
@@ -92,9 +92,9 @@
 									To do so, I used the pseudoinverse of the jacobian matrix:
 									$$\begin{bmatrix} u \\ \dot{&theta;} \end{bmatrix} = {J^{\dagger}}_e(&theta;)V$$
 									The math to calculate the end effector twist is encapsulated in the, 
-									<a href="https://github.com/ayerun/YouBot_sim/blob/master/code/final_project.py" target="_blank">FeedbackControl</a>, 
+									<a href="https://github.com/ayerun/YouBot_sim/blob/master/code/final_project.py#L285" target="_blank">FeedbackControl</a>, 
 									function, and the math to calculate the pseudoinverse of the jacobian is implemented in the, 
-									<a href="https://github.com/ayerun/YouBot_sim/blob/master/code/final_project.py" target="_blank">Get_Jacobians</a>, fucntion.
+									<a href="https://github.com/ayerun/YouBot_sim/blob/master/code/final_project.py#L318" target="_blank">Get_Jacobians</a>, fucntion.
 								</p>
                                 <h2>Results</h2>
 								<p>
