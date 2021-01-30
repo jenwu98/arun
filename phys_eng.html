@@ -126,33 +126,61 @@
                                     If the code detects no impact, the EL equations are solved.
 								</p>
 
-								<h2>Testing</h2>
-								<p>I heavily tested my code to ensure that it is functioning properly. 
-                                    Since I modeled gravity in the z direction, it was easy to see how changing the initial condition affected my simulation. 
-                                    I tested each initial condition individually by setting all other initial conditions and external forces to 0 and animating my solution to determine whether or not my simulation is realistic. 
-                                    I then started to combine various initial conditions for testing. 
-                                    After testing initial conditions, I tested external forces. 
-                                    I used the same process to test external forces as I used to test initial conditions. 
-                                    Once I was confident the external forces were accurate, I started to combine external forces and initial conditions. 
-                                    I used the animation to check whether or not the simulation is realistic.
-                                    The gif at the top of the page uses an initial box angular velocity of 1\(\frac{rad}{s}\), and applies external forces to the box. 
-                                    The external forces are \(F_{x}=300sin(t)\) and \(F_{y}=300cos(t)\). 
-                                    If you neglect  energy transfer between the jack and the box, these initial conditions and forces would cause the box to rotate about its center and follow a repeating semi-circle trajectory moving in the positive x direction. 
-                                    My animation shows the box performing as predicted with slight variations due to energy transfer between the box and the jack. 
-                                    The trajectory of the jack within the box looks realistic given the initial conditions and constants. 
-                                    The mass of the jack is 4kg (a 1kg point mass at each end of the jack) and the mass of each wall of the box is 25kg.
-                                </p>
                                 <h2>Results</h2>
-                                <img class="image center" src="images/jacksim.gif" alt="" />
-                                <p class="image center" style="font-size: 16px;">
-                                    <b>External Forces</b> 
-                                    $$\begin{bmatrix} F_{jack,\ x} \\ F_{jack,\ y} \\ &Tau;_{jack} \\ F_{box,\ x} \\ F_{box,\ y} \\ &Tau;_{box} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 300sin(t) \\ 300cos(t) \\ 0 \end{bmatrix}$$<br/>
-                                    <b>Initial Conditions</b> 
-                                    $$\begin{bmatrix} x_{jack} \\ y_{jack} \\ &theta;_{jack} \\ x_{box} \\ y_{box} \\ &theta;_{box} \end{bmatrix} = \begin{bmatrix} -16 \\ 0 \\ 0 \\ -16 \\ 0 \\ 0 \end{bmatrix}
-                                    \hspace{10mm} \begin{bmatrix} \dot{x}_{jack} \\ \dot{y}_{jack} \\ &omega;_{jack} \\ \dot{x}_{box} \\ \dot{y}_{box} \\ &omega;_{box} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}$$<br/>
-                                    <b>External Forces:</b> \(F_{x}=300sin(t)\) \(F_{y}=300cos(t)\)<br/>
-                                    <b>Initial Conditions:</b> \(x_{jack}=-16\) \(x_{box}=-16\) \(&omega;_{box}=1\)
-                                </p>
+                                <div class = "row">
+                                    <div class ='column-2'>
+                                        <img class="image center" src="images/jacksim1.gif" alt="" style="width: 100%;"/>
+                                        <p class="image center" style="font-size: 16px;">
+                                            <b>External Forces & Initial Conditions</b> 
+                                            $$\begin{bmatrix} F_{jack,\ x} \\ F_{jack,\ y} \\ &Tau;_{jack} \\ F_{box,\ x} \\ F_{box,\ y} \\ &Tau;_{box} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+                                            \hspace{10mm} \begin{bmatrix} \dot{x}_{jack} \\ \dot{y}_{jack} \\ &omega;_{jack} \\ \dot{x}_{box} \\ \dot{y}_{box} \\ &omega;_{box} \end{bmatrix} = \begin{bmatrix} 5 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}$$<br/>
+                                        </p>
+                                    </div>
+                                    <div class ='column-2'>
+                                        <img class="image center" src="images/jacksim.gif" alt="" style="width: 100%;"/>
+                                        <p class="image center" style="font-size: 16px;">
+                                            <b>External Forces & Initial Conditions</b> 
+                                            $$\begin{bmatrix} F_{jack,\ x} \\ F_{jack,\ y} \\ &Tau;_{jack} \\ F_{box,\ x} \\ F_{box,\ y} \\ &Tau;_{box} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 300sin(t) \\ 300cos(t) \\ 0 \end{bmatrix}
+                                            \hspace{10mm} \begin{bmatrix} \dot{x}_{jack} \\ \dot{y}_{jack} \\ &omega;_{jack} \\ \dot{x}_{box} \\ \dot{y}_{box} \\ &omega;_{box} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}$$<br/>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class = "row">
+                                    <div class ='column-2'>
+                                        <img class="image center" src="images/jacksim2.gif" alt="" style="width: 100%;"/>
+                                        <p class="image center" style="font-size: 16px;">
+                                            <b>External Forces & Initial Conditions</b> 
+                                            $$\begin{bmatrix} F_{jack,\ x} \\ F_{jack,\ y} \\ &Tau;_{jack} \\ F_{box,\ x} \\ F_{box,\ y} \\ &Tau;_{box} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix}
+                                            \hspace{10mm} \begin{bmatrix} \dot{x}_{jack} \\ \dot{y}_{jack} \\ &omega;_{jack} \\ \dot{x}_{box} \\ \dot{y}_{box} \\ &omega;_{box} \end{bmatrix} = \begin{bmatrix} -5 \\ 0 \\ 0 \\ 2 \\ 0.5 \\ 3 \end{bmatrix}$$<br/>
+                                        </p>
+                                    </div>
+                                    <div class ='column-2'>
+                                        <img class="image center" src="images/jacksim3.gif" alt="" style="width: 100%;"/>
+                                        <p class="image center" style="font-size: 16px;">
+                                            <b>External Forces & Initial Conditions</b> 
+                                            $$\begin{bmatrix} F_{jack,\ x} \\ F_{jack,\ y} \\ &Tau;_{jack} \\ F_{box,\ x} \\ F_{box,\ y} \\ &Tau;_{box} \end{bmatrix} = \begin{bmatrix} 40\sqrt[t+0.1]{t} \\ 40\sqrt[t+0.1]{t} \\ 30sin(t) \\ 0 \\ 0 \\ 0 \end{bmatrix}
+                                            \hspace{10mm} \begin{bmatrix} \dot{x}_{jack} \\ \dot{y}_{jack} \\ &omega;_{jack} \\ \dot{x}_{box} \\ \dot{y}_{box} \\ &omega;_{box} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{bmatrix}$$<br/>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class = "row">
+                                    <div class ='column-2'>
+                                        <img class="image center" src="images/jacksim4.gif" alt="" style="width: 100%;"/>
+                                        <p class="image center" style="font-size: 16px;">
+                                            <b>External Forces & Initial Conditions</b> 
+                                            $$\begin{bmatrix} F_{jack,\ x} \\ F_{jack,\ y} \\ &Tau;_{jack} \\ F_{box,\ x} \\ F_{box,\ y} \\ &Tau;_{box} \end{bmatrix} = \begin{bmatrix} 40\sqrt[t+0.1]{t} \\ 40\sqrt[t+0.1]{t} \\ 30sin(t) \\ 300sin(t) \\ 300cos(t) \\ 0 \end{bmatrix}
+                                            \hspace{10mm} \begin{bmatrix} \dot{x}_{jack} \\ \dot{y}_{jack} \\ &omega;_{jack} \\ \dot{x}_{box} \\ \dot{y}_{box} \\ &omega;_{box} \end{bmatrix} = \begin{bmatrix} -1 \\ -5 \\ 0 \\ 0 \\ 0 \\ -1 \end{bmatrix}$$<br/>
+                                        </p>
+                                    </div>
+                                    <div class ='column-2'>
+                                        <img class="image center" src="images/jacksim5.gif" alt="" style="width: 100%;"/>
+                                        <p class="image center" style="font-size: 16px;">
+                                            <b>External Forces & Initial Conditions</b> 
+                                            $$\begin{bmatrix} F_{jack,\ x} \\ F_{jack,\ y} \\ &Tau;_{jack} \\ F_{box,\ x} \\ F_{box,\ y} \\ &Tau;_{box} \end{bmatrix} = \begin{bmatrix} 40\sqrt[t+0.1]{t} \\ 40\sqrt[t+0.1]{t} \\ 30sin(t) \\ 300sin(t) \\ 300cos(t) \\ \frac{3}{t+0.1} \end{bmatrix}
+                                            \hspace{10mm} \begin{bmatrix} \dot{x}_{jack} \\ \dot{y}_{jack} \\ &omega;_{jack} \\ \dot{x}_{box} \\ \dot{y}_{box} \\ &omega;_{box} \end{bmatrix} = \begin{bmatrix} -1 \\ -5 \\ 1 \\ -0.5 \\ 0.5 \\ -1 \end{bmatrix}$$<br/>
+                                        </p>
+                                    </div>
+                                </div>
                                 
                                 
                                 <h1><a href="https://github.com/ayerun/Jack_in_Box" target="_blank">-View Full Source Code-</a></h1>
