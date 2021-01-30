@@ -83,13 +83,14 @@
                                     For kinetic energy, I used the equation, 
                                     $$KE = \frac{1}{2}{V_b}^{T}IV_b.$$
                                     \(V_b\) is the body velocity<br/>
-                                    I is the combined mass and inertia matrix<br/>
+                                    I is the combined mass and inertia matrix<br/><br/>
                                     I set to potential energy to 0 under the assumption that gravity is acting in the z direction (into the screen). 
                                     I calculated the Lagrangian by subtracting the potential energy from the kinetic energy, \(L=KE-PE\). 
                                     Finally, I formed the EL equations by differentiating the Lagrangian.
                                     $$\frac{d}{dt}(\frac{&delta;L}{&delta;\frac{dq}{dt}})-\frac{&delta;L}{&delta;q}=F$$
                                     q is a matrix of configuration variables<br/>
-                                    F is a matrix of external forces on the system
+                                    F is a matrix of external forces on the system<br/>
+                                    L is the Lagrangian
                                 </p>
                                 
                                 <h2>Constraints</h2>
@@ -141,6 +142,19 @@
                                     The trajectory of the jack within the box looks realistic given the initial conditions and constants. 
                                     The mass of the jack is 4kg (a 1kg point mass at each end of the jack) and the mass of each wall of the box is 25kg.
                                 </p>
+                                <h2>Results</h2>
+                                <img class="image center" src="images/jacksim.gif" alt="" />
+                                <p class="image center" style="font-size: 16px;">
+                                    <b>External Forces</b> 
+                                    $$\begin{bmatrix} F_{jack,\ x} \\ F_{jack,\ y} \\ &Tau;_{jack} \\ F_{box,\ x} \\ F_{box,\ y} \\ &Tau;_{box} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 300sin(t) \\ 300cos(t) \\ 0 \end{bmatrix}$$<br/>
+                                    <b>Initial Conditions</b> 
+                                    $$\begin{bmatrix} x_{jack} \\ y_{jack} \\ &theta;_{jack} \\ x_{box} \\ y_{box} \\ &theta;_{box} \end{bmatrix} = \begin{bmatrix} -16 \\ 0 \\ 0 \\ -16 \\ 0 \\ 0 \end{bmatrix}
+                                    \hspace{10mm} \begin{bmatrix} \dot{x}_{jack} \\ \dot{y}_{jack} \\ &omega;_{jack} \\ \dot{x}_{box} \\ \dot{y}_{box} \\ &omega;_{box} \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}$$<br/>
+                                    <b>External Forces:</b> \(F_{x}=300sin(t)\) \(F_{y}=300cos(t)\)<br/>
+                                    <b>Initial Conditions:</b> \(x_{jack}=-16\) \(x_{box}=-16\) \(&omega;_{box}=1\)
+                                </p>
+                                
+                                
                                 <h1><a href="https://github.com/ayerun/Jack_in_Box" target="_blank">-View Full Source Code-</a></h1>
 							</section>
 
