@@ -45,7 +45,14 @@
 									<span class="date">January 2021 - March 2021</span>
 									<h1>Handheld 3D Scanning & Reconstruction</h1>
 								</header>
-								<div class="image main"><iframe width="1120" height="630" src="https://www.youtube.com/embed/oK1snEow3yI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+								<div class="iframe-container"><iframe height="300px;" width="500px;" src="https://www.youtube.com/embed/oK1snEow3yI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+								<style>
+								  .iframe-container {
+										text-align:center;
+								  		width:100%;
+								  }
+								</style>
 								<h2>Overview</h2>
 								<p>Building off a 
 									<a href="3Dscan.html" target="_blank">previous project</a>, 
@@ -57,7 +64,10 @@
 								</p>
 
 								<h2>Reconstruction Pipeline</h2>
-									<p>insert diagram</p>
+									 <a href="images/reconstruction_diagram.png" target="_blank"><img class="image fit" src="images/reconstruction_diagram.png" alt="" /></a><br/>
+                                    <div class="align center">
+										<p class="image center"><b>Figure 1.</b>LOOK AT MEEEEEEE</p>
+									</div>
                                     <b>Point Cloud Fusion</b>
                                     <p>To scan entire objects, I needed to implement continuous point cloud fusion. 
 										This requires finding the transformation between each point cloud.
