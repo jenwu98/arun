@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Telerobotics</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="about.html">About</a></li>
+							<li><a href="contact.html">Contact</a></li>
+							<li><a href="Resume_Kumar.pdf" target="_blank" download>Resume</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/arun-kumar-102197/" target="_blank" class="icon brands alt fa-linkedin"><span class="label">Linkedin</span></a></li>
+							<li><a href="https://github.com/ayerun" target="_blank" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">March 2018 - July 2020</span>
+									<h1>Lunar Telerobotic Assembly Research</h1>
+									<p>Led a team of engineers creating robotic hardware and software for<br />
+										research in advancement of the NASA proposed FARSIDE mission</p>
+								</header>
+								<div class="image main"><img src="images/Armstrong_Ames.jpg" alt="" /></div>
+								<h2>Overview</h2>
+								<p>I began working at the Telerobotics Lab at University of Colorado Boulder as a systems engineer eventually becoming the lead engineer and project manager. Our research focuses on the robotic deployment of a low-frequency radio telescope on the lunar farside as part of the NASA proposed 
+									<a href="https://science.nasa.gov/science-pink/s3fs-public/atoms/files/FARSIDE_FinalRpt-2019-Nov8.pdf" target="_blank">FARSIDE (Farside Array for Radio Science Investigations of the Dark Ages and Exoplanets)</a> 
+									mission. Using a COTS rover and robotic arm, we developed a Telerobotic Simulation System (TSS) for experiments assessing the risks and rewards of new technologies for low-latency telerobotic assembly tasks.
+								</p>
+
+								<h2>Human Factors Experiment</h2>
+								<p>This experiment served to determine a methodology to accurately assess the situational awareness (SA) and cognitive load (CL) of an operator while performing telerobotic assembly tasks analogous to a robotic lunar mission. SA and CL along with task performance are critical metrics when assessing the effectiveness of a telerobotic system. The published work can be found 
+									<a href="https://ieeexplore.ieee.org/document/9172667" target="_blank">here</a>.<br />
+								</p>
+
+								<h2>Virtual Simulation Experiment</h2>
+								<p>This work-in-progress presents and evaluates a new failure response method for planetary robots.</p>
+								<p>
+									<b>Motivation</b><br/>
+									NASA is creating a sustainable human-lunar presence which requires large scale robotic surface operations. Direct teleoperation of all lunar robots will be inefficient. Collaborative control is a more semi-autonomous model that incorporates human ingenuity during failure response.<br/>
+									<div class="align center">
+										<img class="image center" src="images/collaborative_control.jpg" alt="" />
+										<p class="image center"><b>Figure 1.</b> Collaborative control flowchart. Robot is autonomous till it reaches a point of uncertainty. Human can provide robot with additional information or take direct control of robot.</p>
+									</div>
+									<br/>
+									In terms of the current failure response method for planetary rovers, the test rover for Curiosity is a prime example. 
+									NASA created a hardware duplicate of Curiosity which they use on Earth in a simulated Martian environment. 
+									This is a reasonable problem solving method for the martian rovers, however this method becomes very expensive and inefficient as the number of robots scales. 
+									<a href="https://www.nasa.gov/gateway" target="_blank">The Gateway</a>
+									could provide infrastructure for large data transfer with minimal latency allowing for new failure response methods.
+								</p>
+								<p>
+									<b>Research Objective 1: Analyze current technologies used in space to develop a new failure response method for robotic planetary assembly tasks</b><br/>
+									When developing a new failure response strategy, we wanted to leverage existing technologies currently on board rovers or other space systems. 
+									Curiosity and Perseverance have 3D mapping capabilities which could be used to virtually recreate the rovers' environment. 
+									The <a href="https://www.asc-csa.gc.ca/eng/iss/dextre/dextre-operated-camera.asp" target="_blank">Dextre-Operated Camera</a> 
+									also leverages 3D mapping to inspect the ISS for damage. 
+									Using these technologies, we can generate a virtual training environment in order to develop solutions to failures
+									This idea is promising because 
+									<a href="https://www.tandfonline.com/doi/pdf/10.1080/001401300184378?needAccess=true" target="_blank">previous research</a> 
+									has shown virtual training improves real world task performance.
+								</p>
+								<p>
+									<b>Research Objective 2: Create a virtual recovery sandbox for problem solving assembly failures</b><br/>
+									Imagine a collaboratively controlled lunar robot performing an assembly task. 
+									The robot would contact a human supervisor if in a failure mode. 
+									Assuming the robot has a stereo camera, it could take a 3D scan of its environment to create a virtual sandbox. 
+									Assembly objects would be marked and imported into the virtual sandox during the scan. 
+									All unmarked objects will be assumed as terrain with uniform physical properties. 
+									Lastly, a CAD model of the rover will imported into the sandbox. 
+									The human supervisor can problem solve in this virtual sandbox without consequences.<br/>
+									<div class="row">
+										<div class="column-2">
+											<img src="images/physical_sandbox.gif" alt="" style="width: 100%;"/>
+										</div>
+										<div class="column-2">
+											<img src="images/virtual_sandbox.gif" alt="" style="width: 100%;"/>
+										</div>
+									</div>
+									<div class="align center">
+										<p class="image center"><b>Figure 2.</b> Physical robot (left) in physical lunar sandbox. Virtual robot (right) in virtual lunar sandbox.</p>
+									</div>
+								</p>
+								<p>
+									<b>Research Objective 3: Compare the effectiveness of problem solving in a virtual sandox to a physical sandox</b><br/>
+									To accomplish this objective, we designed a between participants experiment with 2 conditions and 3 phases. <br/>
+					
+									<img class="image center" src="images/experiment_design.jpg" width="1000" alt="" style="width: 100%;"/><br/>
+									<div class="align center">
+										<p class="image center"><b>Figure 3.</b> Purposed experimental design to assess the effectiveness of solution development in virtual reality.</p>
+									</div>
+
+									<b>Phase 1: Initial Training</b><br/>
+									During the phase, participants will learn and practice the system controls. 
+									Participants will complete a guided tutorial.terrain 
+									Then they must pass a test to move to the next phase.<br/>
+									<b>Phase 2: Solution Development</b><br/>
+									After initial training, half of the participants will work in the virtual sandbox, and half will work in the physical sandbox. 
+									In this phase, the robot starts in a failure mode. 
+									The operator's goal is to devlop a method to quickly and accurately resolve the failure within 20 minutes. 
+									The operator may reset the sandbox to its initial condition as often as desired.<br/>
+									<b>Phase 3: Direct Teleoperation</b><br/>
+									In this portion of the experiment, participants must employ the previously discovered solution to recover from the assembly failure via direct teleoperation of the physical robot and assembly hardware.
+									The operator's goal is to recover from the failure as fast as possible with minimal resets.
+									Time to completion and number of resets will be recorded.<br/>
+									<b>Surveys</b><br/>
+									Participants will complete surveys before and after Phase 3 to assess cognitive load, situational awareness, and system usability.
+								</p>
+
+								<h2>Presentations, Abstracts, and Publications</h2>
+								<p>
+									<b>IEEE Aerospace Conference 2020</b><br />
+									<a href="docs/IEEE_Kumar.pdf" target="_blank">A Methodology to Assess the Human Factors Associated with Lunar Teleoperated Assembly Tasks</a>
+								</p>
+								<p>
+									<b>Lunar Surface Workshop 2020</b><br />
+									<a href="docs/Lunar_Surface_Workshop_Abstract.pdf" target="_blank">Telerobotic Assembly Research and Artemis Infrastructure to Enable the FARSIDE Mission</a>
+								</p>
+								<p>
+									<b>Lunar Graduate Conference 2020</b><br />
+									<a href="docs/LGC_2020_Abstract_Kumar.pdf" target="_blank">Lunar Telerobotic Assembly Recovery Using Cyber-Physical Training</a>
+								</p>
+								<p>
+									<b>NASA Exploration Science Forum 2020</b><br />
+									<a href="docs/Abstract_ESF2020.pdf" target="_blank">Implementing an Augmented Reality User Interface for Future Lunar Telerobotic Assembly Experiments</a>
+									<br><br/>
+									<iframe width="560" height="315" class="video center" src="https://www.youtube.com/embed/5Pz-iAtkERk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</p>
+								<p>
+									<b>NASA Exploration Science Forum 2019</b><br />
+									<a href="docs/Abstract_ESF2019.pdf" target="_blank">Low-Latency Telerobotic Assembly of a Low Frequency Radio Telescope on the Moon:<br />
+										Establishing Baselines for User Situation Awareness and Cognitive Load</a>
+								</p>
+
+								<h2>Media</h2>
+								<p>
+									<a href="https://www.abcactionnews.com/news/national/students-design-robotic-lunar-rover-that-could-give-us-deeper-look-into-the-universe" target="_blank" >ABC Action News: Students design robotic lunar rover that could give us deeper look into the universe</a><br/>
+									<a href="https://www.reuters.com/video/watch/idOVANWB5JZ" target="_blank" >Reuters: Robots may beat humans back to the moon</a>
+								</p>
+
+								<h2>Acknowledgements</h2>
+								<p>
+									Dr. Jack Burns - University of Colorado Boulder<br/>
+									Dr. Dan Szafir - University of Colorado Boulder<br/>
+									Mason Bell - University of Colorado Boulder<br/>
+									Phaedra Curlin - University of Colorado Boulder<br/>
+									Michael Walker - University of Colorado Boulder<br/>
+									Benjamin Mellinkoff - General Atomics<br/>
+									Alexander Sandoval - Ball Aerospace<br/>
+									Mike Drever - Lockheed Martin<br/>
+									<a href="https://sservi.nasa.gov/" target="_blank" >NASA Solar System Exploration Research Virtual Institute</a><br/>
+									<a href="https://www.colorado.edu/ness/" target="_blank" >Network for Exploration and Space Science</a>
+								</p>
+							</section>
+
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
