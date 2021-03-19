@@ -2666,9 +2666,8 @@ input, select, textarea {
 				width: 100%;
 			}
 
-		.image.main { /*penis*/
+		.image.main { 
 			display: block;
-			/*margin: 1rem 0;*/
 			width: 100%;
             transform: scale(0.7);
 		}
