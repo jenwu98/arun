@@ -2599,18 +2599,13 @@ input, select, textarea {
 /* Image */
 
 	/*side by side images*/
-	.stl-column {
-  float: left;
-  width: 50%;
+.stl-row {
+  display: flex;
 }
 
-/* Clear floats after the columns */
-.stl-row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-	.row{
+.stl-column {
+  flex: 50%;
+}.row{
 		display: flex;
 	}
 	.column-2{
