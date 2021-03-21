@@ -2599,13 +2599,18 @@ input, select, textarea {
 /* Image */
 
 	/*side by side images*/
-.stl-row {
-  display: flex;
-}
+	.stl-parent {
+	  border: 3px solid #fff;
+	  padding:20px;
+	}
 
-.stl-column {
-  flex: 50%;
-}.row{
+	.stl-column {
+	  width: 50%;
+	  float:left;
+	  padding: 20px;
+	  border: 2px solid red;
+	}
+.row{
 		display: flex;
 	}
 	.column-2{
