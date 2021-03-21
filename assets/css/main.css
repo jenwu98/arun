@@ -2599,6 +2599,17 @@ input, select, textarea {
 /* Image */
 
 	/*side by side images*/
+	.stl-column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.stl-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 	.row{
 		display: flex;
 	}

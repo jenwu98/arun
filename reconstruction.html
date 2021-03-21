@@ -127,8 +127,28 @@
                                 
                                 <h2>Results</h2>
                                     <b>Jetson Nano</b>
-                                    <div>
-                                    	 <div id="stl_cont" style="display: block; margin: 2.5rem 0; width: 100%;"></div>
+                                    <div class="stl-row">
+                                    <div id="stl_cont" class="stl-column" style="display: block; margin: 2.5rem 0; width: 100%;"></div>
+
+                                <script src="stl_viewer/stl_viewer.min.js"></script>        
+                                <script>
+                                    var stl_viewer=new StlViewer
+                                    (
+                                        document.getElementById("stl_cont"),
+                                        {
+                                            auto_rotate:false,
+                                            bgcolor:"#20FAAC",
+                                            allow_drag_and_drop:true,
+                                            /*canvas_width: 40%,*/ 
+                                            models:
+                                            [
+                                                {filename:"https://raw.githubusercontent.com/ayerun/Portfolio/f20e179f958c6023475d4152b11a5b850f734801/stl/nano_guitar_cropped.STL"}
+                                               ]
+                                            }
+                                    );
+                                </script>
+
+                                 <div id="stl_cont" class="stl-column" style="display: block; margin: 2.5rem 0; width: 100%;"></div>
 
                                 <script src="stl_viewer/stl_viewer.min.js"></script>        
                                 <script>
