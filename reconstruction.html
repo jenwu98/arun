@@ -88,12 +88,48 @@
                                     <p>Once I generated a point cloud map, I figured the project was mostly complete. 
 										Using the Point Cloud Library (PCL), I estimated the surface normals and implemented the Greedy Projection Triangulation algorithm to generate a mesh. 
 										My results were disappointing.<br/>
-										insert stl <br/>
+										
+										<div id="stl_conta" style="display: block; margin: 2.5rem 0; width: 100%;"></div>
+
+			                              	  <script src="stl_viewer/stl_viewer.min.js"></script>        
+				                               	 <script>
+					                                    var stl_viewer=new StlViewer
+					                                    (
+					                                        document.getElementById("stl_conta"),
+					                                        {
+					                                            auto_rotate:false,
+					                                            bgcolor:"#20FAAC",
+					                                            allow_drag_and_drop:true,
+					                                            models:
+					                                            [
+					                                                {filename:"https://raw.githubusercontent.com/ayerun/Portfolio/1a047449b151cd1f878ac00625757850ebaeb3f1/stl/desk_bad.stl"}
+					                                               ]
+					                                            }
+					                                    );
+					                                </script>
 										The point cloud map looked great, but I attemped countless different combinations of meshing parameters with no success.
 										This made me believe that the estimation of surface normals was the source of error.
 										I took a step back and implemented the moving least squares algorithm in PCL to smooth the point cloud map prior to estimating surface normals.
 										The resulting meshes showed significant improvement.<br/>
-										insert stl<br/>
+											
+										<div id="stl_contb" style="display: block; margin: 2.5rem 0; width: 100%;"></div>
+
+			                              	  <script src="stl_viewer/stl_viewer.min.js"></script>        
+				                               	 <script>
+					                                    var stl_viewer=new StlViewer
+					                                    (
+					                                        document.getElementById("stl_contb"),
+					                                        {
+					                                            auto_rotate:false,
+					                                            bgcolor:"#20FAAC",
+					                                            allow_drag_and_drop:true,
+					                                            models:
+					                                            [
+					                                                {filename: "https://raw.githubusercontent.com/ayerun/Portfolio/1a047449b151cd1f878ac00625757850ebaeb3f1/stl/desk_good.stl"}
+					                                               ]
+					                                            }
+					                                    );
+					                                </script>
 									</p>
 
                                 <h2>Porting to Microcontrollers</h2>
