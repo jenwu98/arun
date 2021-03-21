@@ -2600,7 +2600,6 @@ input, select, textarea {
 
 	/*side by side images*/
 	.stl-parent {
-	  border: 3px solid #fff;
 	  padding:20px;
 	}
 
@@ -2608,8 +2607,9 @@ input, select, textarea {
 	  width: 50%;
 	  float:left;
 	  padding: 20px;
-	  border: 2px solid red;
+	  border: 1px solid black;
 	}
+
 .row{
 		display: flex;
 	}
@@ -3863,7 +3863,7 @@ input, select, textarea {
 					#main > .post header.major > h1, #main > .post header.major h2 {
 						font-size: 2.5rem;
 						line-height: 1.2;
-						margin: 0; /*pennis*/
+						margin: 0; 
 					}
 
 			}
